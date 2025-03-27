@@ -392,59 +392,72 @@
   margin-top: auto;
 }
 
-/* Toggle Button Container */
-.toggle-firstguess {
+/* Chat Footer Adjustments */
+.chat-footer {
+  padding-bottom: 15px; /* Add padding to prevent cutting off */
+  margin-top: auto; /* Push to bottom of container */
+  width: 80%;
+  position: relative; /* Ensure proper positioning */
+}
+
+/* Toggle Container Refinements */
+.toggle-container {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  justify-content: space-between;
   padding: 0.75rem 1rem;
-  background: none;
-  border: 1px solid #e5e7eb; /* Subtle border */
-  border-radius: 6px;
-  color: #f3f4f6; /* Default text color */
-  cursor: pointer;
-  transition: all 0.2s ease;
   width: 100%;
-  margin: 4px 0;
+  margin: 4px 0 10px 0; /* Increase bottom margin */
 }
 
-/* Hover State */
-.toggle-firstguess:hover {
-  background-color: #17191d;
-  border-color: #d1d5db;
+
+/* Toggle Label */
+.toggle-label {
+  color: #f3f4f6;
+  font-size: 14px;
 }
 
-/* Active/Pressed State */
-.toggle-firstguess[aria-pressed="true"] {
-  background-color: #f0fdfa; /* Light teal background */
-  border-color: #2dd4bf; /* Teal border */
-  color: #0d9488; /* Teal text */
-  font-weight: 500;
+/* Toggle Switch Base */
+.toggle-switch {
+  position: relative;
+  width: 40px;
+  height: 22px;
+  background-color: #374151; /* Gray background when off */
+  border-radius: 11px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 0;
 }
 
-/* SVG Icon Styling */
-.toggle-firstguess svg {
-  transition: fill 0.2s ease, stroke 0.2s ease;
-  flex-shrink: 0;
+/* Toggle Switch Active State */
+.toggle-switch[aria-pressed="true"] {
+  background-color: #ef4444; /* Red background when on */
 }
 
-/* Checkmark Visibility Control */
-.toggle-firstguess[aria-pressed="true"] svg {
-  fill: #0d9488; /* Teal fill when active */
-  stroke: #0d9488;
+/* Toggle Slider (The Circle) */
+.toggle-slider {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+/* Move Slider When Active */
+.toggle-switch[aria-pressed="true"] .toggle-slider {
+  transform: translateX(18px);
 }
 
 /* Focus State Accessibility */
-.toggle-firstguess:focus-visible {
-  outline: 2px solid #2dd4bf;
+.toggle-switch:focus-visible {
+  outline: 2px solid #ef4444;
   outline-offset: 2px;
 }
 
-/* Disabled State (if needed later) */
-.toggle-firstguess:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
 
 .login-message {
   color: #888;

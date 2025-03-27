@@ -96,7 +96,7 @@ def ask():
     email = input_data['email']
     session_key = input_data.get('sessionKey')
     question = input_data['question']
-    first_guess = input_data.get('firstGuess', '') 
+    first_guess = input_data.get('firstGuess') 
     history = input_data.get('history', [])
 
     user = user_collection.find_one({"email": email})
@@ -123,7 +123,7 @@ def ask():
         "text": question,
         "timestamp": datetime.now().isoformat()
     }
-    if first_guess.strip():
+    if first_guess:  # If a first guess is provided, include it in the session
         user_message["first_guess"] = first_guess
     user_collection.update_one(
         {"email": email},
@@ -153,7 +153,7 @@ def ask():
                     yield f"{chunk}"  # Stream main response chunks
 
             # Generate and stream analysis after the main response is complete
-            if input_data.get('firstGuess') and input_data['firstGuess'].strip():
+            if first_guess and first_guess.strip():
                 comparison_prompt = f"""
                 Compare the user's first guess with the final answer. 
                 Highlight key similarities and provide constructive feedback.

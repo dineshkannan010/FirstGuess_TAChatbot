@@ -470,9 +470,9 @@ const ChatPage = () => {
                             const lastMessage = prev[prev.length - 1];
                     
                             // Check if this chunk contains "[First Guess Analysis]"
-                            if (chunk.includes('\n [First Guess Analysis]')) {
+                            if (chunk.includes('\n\n \n [First Guess Analysis]')) {
                                 isAnalysisStarted = true; // Start appending analysis content
-                                aggregatedText += '\n\n'; // Add spacing before analysis
+                                aggregatedText += '\n\n<div style="margin: 20px 0; padding: 15px 0; border-top: 1px solid #ccc;"></div>\n\n'; // Add spacing before analysis
                             }
                     
                             // Append chunks to aggregated text
@@ -481,7 +481,7 @@ const ChatPage = () => {
                             // Update or create a single combined message
                             if (lastMessage?.sender === 'bot' && lastMessage?.isCombined) {
                                 // Update the existing combined message
-                                return [...prev.slice(0, -1), { ...lastMessage, text: `Virtual TA\n${aggregatedText}` }];
+                                return [...prev.slice(0, -1), { ...lastMessage, text: `\n${aggregatedText}` }];
                             } else {
                                 // Create a new combined message
                                 return [
@@ -928,25 +928,20 @@ const ChatPage = () => {
                     </div>
                 )} */}
 
-                <div className="chat-footer"> 
+                <div className="chat-footer">
+                    <div className="toggle-container">
+                        <span className="toggle-label">First Guess</span>
                         <button 
-                            className="toggle-firstguess"
+                            className="toggle-switch"
                             onClick={toggleFirstGuess}
                             title={showFirstGuess ? "Disable First Guess" : "Enable First Guess"}
                             aria-pressed={showFirstGuess}
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" 
-                                fill={showFirstGuess ? "currentColor" : "none"} 
-                                viewBox="0 0 24 24" 
-                                strokeWidth="1.5" 
-                                stroke="currentColor" 
-                                style={{ width: '24px', height: '24px' }}>
-                                <path strokeLinecap="round" strokeLinejoin="round" 
-                                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            First Guess
+                            <span className="toggle-slider"></span>
                         </button>
+                    </div>
                 </div>
+
             </aside>
             <main style={{ flex: 1, overflowY: 'hidden', padding: '10px', display: 'flex', flexDirection: 'column' }}>
                 <div className="chat-container" ref={chatContainerRef}>
