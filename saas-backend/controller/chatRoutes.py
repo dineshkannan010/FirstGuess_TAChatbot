@@ -156,14 +156,23 @@ def ask():
             if first_guess and first_guess.strip():
                 comparison_prompt = f"""
                 Compare the user's first guess with the final answer. 
-                Highlight key similarities and provide constructive feedback.
+                
                 
                 First Guess: {first_guess}
                 Final Answer: {full_response}
                 
-                Structure your response:
-                - Key Matches: 
+                Structure your response explicitly:
+
+                - Key Matches:
+                    [Include specific matches between the guess and the correct concept, focusing on any partial understanding]
+                    [If the guess shows misunderstanding but has some logical connection, explain it]
+                    
                 - Suggested Improvements:
+                    [Provide specific guidance on how to improve understanding of the concept]
+                    [Suggest how to think about the domain context more effectively]
+
+                Be concise but informative. If there are no meaningful matches, explicitly state "None" under Key Matches.
+
                 """
 
                 analysis_stream = ChatOpenAI().stream(comparison_prompt)
@@ -179,7 +188,7 @@ def ask():
                         yield str(msg_chunk)
             
             # Combine main response and analysis into one text block
-            combined_response = f"{full_response}\n\n[First Guess Analysis]\n{''.join(analysis_buffer)}"
+            combined_response = f"{full_response}\n\n---\n\n[First Guess Analysis]\n{''.join(analysis_buffer)}"
 
 
         except Exception as e:

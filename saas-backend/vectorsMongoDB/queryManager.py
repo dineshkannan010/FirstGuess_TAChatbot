@@ -61,7 +61,7 @@ vector_search = MongoDBAtlasVectorSearch(
 # STEP 2
 retriever = vector_search.as_retriever(
     search_type="similarity",
-    search_kwargs={"k": 10, "score_threshold": 0.8}
+    search_kwargs={"k": 10, "score_threshold": 0.77}
 )
 
 # Define the template for the language model
@@ -144,7 +144,36 @@ rag_chain = (
     | StrOutputParser() # STEP 7
 )
 
-# Function to process a query
+def enhanced_retriever(question: str, first_guess: str, k: int = 10, score_threshold: float = 0.75):
+    """
+    Retrieves documents by combining the embeddings of the question and the first guess.
+    The question is weighted more heavily (80%) than the first guess (20%).
+    If no first guess is provided, it defaults to using only the question.
+    """
+    # If there's no first guess, use standard retrieval
+    if not first_guess or first_guess.strip() == "":
+        return retriever.invoke(question)
+    
+    # Create embeddings using OpenAIEmbeddings
+    embeddings = OpenAIEmbeddings(disallowed_special=())
+    question_embedding = embeddings.embed_query(question)
+    guess_embedding = embeddings.embed_query(first_guess)
+    
+    # Combine embeddings with weighted contributions
+    combined_embedding = [
+        q * 0.8 + g * 0.2 for q, g in zip(question_embedding, guess_embedding)
+    ]
+    
+    # Use the combined embedding to perform a similarity search.
+    # Note: _similarity_search_with_score is an internal method—ensure it's supported in your version!
+    results = vector_search._similarity_search_with_score(
+        query_vector=combined_embedding,
+        k=k
+    )
+    
+    # Filter out documents with a similarity score below the threshold.
+    filtered_results = [doc for doc, score in results if score > score_threshold]
+    return filtered_results
 
 def process_query(question, history: List[dict],first_guess: str = ''):
     '''
@@ -157,7 +186,8 @@ def process_query(question, history: List[dict],first_guess: str = ''):
 
     try:
         # Retrieve the relevant documents
-        context_docs = retriever.invoke(question)
+        #context_docs = retriever.invoke(question)
+        context_docs = enhanced_retriever(question, first_guess)
         context = format_docs(context_docs)
         history_formatted = ""
         
@@ -195,7 +225,10 @@ def make_query(input_text: str | None, history: List[dict] | None = None, first_
 
     if history is None:
         history = []
-
+    if first_guess is None:
+        first_guess = ''
+    print(f"Input text: {input_text}")  
+    print(f"first guess: {first_guess}")
     try:
         response_generator = process_query(input_text, history, first_guess)
         return response_generator
