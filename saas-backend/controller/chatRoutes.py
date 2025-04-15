@@ -37,6 +37,7 @@ MONGODB_URI = os.getenv('MONGODB_URI')
 MONGODB_USERS = os.getenv('MONGODB_USERS')
 MONGODB_DB = os.getenv('MONGODB_DATABASE')
 MONGODB_SUGGESTIONS = os.getenv('MONGODB_SUGGESTIONS')
+OpenAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
 if MONGODB_URI is None or MONGODB_USERS is None or MONGODB_DB is None or MONGODB_SUGGESTIONS is None:
     raise ValueError("MongoDB URI, database name, or collection name is not set.")
@@ -155,27 +156,41 @@ def ask():
             # Generate and stream analysis after the main response is complete
             if first_guess and first_guess.strip():
                 comparison_prompt = f"""
-                Compare the user's first guess with the final answer. 
-                
-                
-                First Guess: {first_guess}
-                Final Answer: {full_response}
-                
-                Structure your response explicitly:
+                **Context**:
+                - Question: {question}
+                - First Guess: {first_guess}
+                - Final Answer: {full_response}
 
-                - Key Matches:
-                    [Include specific matches between the guess and the correct concept, focusing on any partial understanding]
-                    [If the guess shows misunderstanding but has some logical connection, explain it]
-                    
-                - Suggested Improvements:
-                    [Provide specific guidance on how to improve understanding of the concept]
-                    [Suggest how to think about the domain context more effectively]
+                **Role**: Act as an expert educational analyst. Your task is to evaluate the user's first guess against the final answer, identifying key strengths and areas for improvement in a concise manner.
 
-                Be concise but informative. If there are no meaningful matches, explicitly state "None" under Key Matches.
+                **Analysis Structure**:
+                1. **Key Matches** (2 max):
+                - If no meaningful matches exist, explicitly state: "No technical matches found."
+                - Identify up to two correct or partially correct elements in the guess.
+                - If the guess uses metaphors or non-technical language, briefly explain how it relates (or doesn’t) to the technical concept.
 
+
+                2. **Suggested Improvements** (2 max):
+                - Provide up to two actionable suggestions to address misconceptions or irrelevance.
+                - Reframe metaphors or incorrect guesses in terms of accurate technical concepts and textbook terminology.
+                - Suggest one practical example or resource for further understanding.
+
+                **Format Rules**:
+                - Use concise bullet points for clarity.
+                - Avoid generic advice like "study more" or "read more."
+                - Maintain a professional and educational tone, even if the guess is irrelevant or incorrect.
+                - Use terminology and examples from "Engineering Software as a Service" where applicable.
                 """
 
-                analysis_stream = ChatOpenAI().stream(comparison_prompt)
+                chat_model = ChatOpenAI(
+                    model="gpt-4o-mini",  
+                    temperature=0.8,  # Adjust temperature for response creativity
+                    openai_api_key= OpenAI_API_KEY,  # Replace with your OpenAI API key
+                    streaming=True  # Enable streaming for real-time responses
+                )
+
+                # Generate the analysis stream using the specified model
+                analysis_stream = chat_model.stream(comparison_prompt)
 
                 # Stream chunks of analysis directly
                 yield "\n\n[First Guess Analysis]\n"

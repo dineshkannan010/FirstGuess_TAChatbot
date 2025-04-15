@@ -1,0 +1,354 @@
+[
+    {
+        "question_id": 1,
+        "question_text": "How does the book's explanation of client-server architecture at '100,000 feet' relate to modern SaaS applications?",
+        "response_type": "Plain Question",
+        "student_guess": "N/A",
+        "chatbot_response": "The book's explanation of client-server architecture at a high level\u2014referred to as '100,000 feet'\u2014provides a foundational understanding directly applicable to modern SaaS applications. It emphasizes key aspects such as client-server interactions, HTTP-based communication, service-oriented architecture, horizontal scalability, and cloud computing, which are critical to current SaaS designs.",
+        "firstguess_analysis": "N/A"
+    },
+    {
+        "question_id": 1,
+        "question_text": "How does the book's explanation of client-server architecture at '100,000 feet' relate to modern SaaS applications?",
+        "response_type": "Correct First Guess",
+        "student_guess": "The book describes the fundamental relationship between clients and servers in the context of SaaS.",
+        "chatbot_response": "Correct. The book explains client-server architecture as fundamental for SaaS applications, highlighting how clients (browsers/apps) interact with servers (which handle processing). Modern SaaS uses this model extensively, relying on HTTP for RESTful interactions, SOA, microservices, and horizontal scalability.",
+        "firstguess_analysis": "Correct identification of fundamental client-server relationships in SaaS. Suggested improvements: Expand explicitly on HTTP communication and microservices."
+    },
+    {
+        "question_id": 1,
+        "question_text": "How does the book's explanation of client-server architecture at '100,000 feet' relate to modern SaaS applications?",
+        "response_type": "Wrong First Guess",
+        "student_guess": "It describes in terms of client-server interaction, Scalability, Universal Client, Microservices, and APIs.",
+        "chatbot_response": "Partially correct. You correctly mentioned client-server interaction and microservices/APIs, essential to SaaS. However, 'Universal Client' and scalability should be clarified further\u2014highlighting horizontal scaling and cloud computing explicitly.",
+        "firstguess_analysis": "Correctly identified some key terms (client-server, microservices). Suggested improvements: Clarify incorrect or unclear terms (Universal Client) and specify the form of scalability (horizontal)."
+    },
+    {
+        "question_id": 1,
+        "question_text": "How does the book's explanation of client-server architecture at '100,000 feet' relate to modern SaaS applications?",
+        "response_type": "Irrelevant First Guess",
+        "student_guess": "Do not repeat yourself.",
+        "chatbot_response": "Irrelevant guess. 'Do not repeat yourself' relates to coding best practices, not directly to client-server architecture. Client-server architecture pertains specifically to how clients and servers communicate, scale, and interact within SaaS using standards like HTTP and microservices.",
+        "firstguess_analysis": "The guess is unrelated (coding principle vs. architecture). Suggested improvements: Clarify explicitly the distinction between software architecture (client-server) and programming principles (DRY)."
+    },
+    {
+        "question_id": 2,
+        "question_text": "Can you explain the 3-tier architecture and horizontal scaling concepts in simpler terms?",
+        "response_type": "Plain Question",
+        "student_guess": "N/A",
+        "chatbot_response": "Sure! The three-tier architecture organizes an application into three layers: Presentation (user interface), Logic (business rules), and Persistence (data storage). Presentation shows and receives user input, Logic processes requests, and Persistence stores data. Horizontal scaling involves adding more servers (instead of upgrading one) to handle increased user demand, similar to adding more lanes to a highway.",
+        "firstguess_analysis": "N/A"
+    },
+    {
+        "question_id": 2,
+        "question_text": "Can you explain the 3-tier architecture and horizontal scaling concepts in simpler terms?",
+        "response_type": "Correct First Guess",
+        "student_guess": "The 3-tier architecture separates an app into presentation, logic, and data layers. Horizontal scaling adds more servers to handle more users.",
+        "chatbot_response": "Correct. The 3-tier architecture separates an application into Presentation (interface), Logic (business decisions), and Persistence (data storage). Horizontal scaling means increasing app capacity by adding more servers (not upgrading hardware), helping manage more users efficiently.",
+        "firstguess_analysis": "Key Matches:\n- Correct identification of 3-tier layers: Presentation, Logic, Persistence.\n- Correctly defined horizontal scaling as adding servers.\n\nSuggested Improvements:\n- Clearly define roles of each layer: Presentation (user interface), Logic (business rules), Persistence (database storage).\n- Expand on scaling metaphor (like adding tables in a restaurant to serve more customers)."
+    },
+    {
+        "question_id": 2,
+        "question_text": "Can you explain the 3-tier architecture and horizontal scaling concepts in simpler terms?",
+        "response_type": "Wrong First Guess",
+        "student_guess": "The 3-tier architecture divides an app into frontend, backend, and middleware layers. Horizontal scaling means upgrading a server\u2019s hardware.",
+        "chatbot_response": "Partially correct. 3-tier architecture divides into Presentation, Logic, and Persistence\u2014not frontend/backend/middleware. Horizontal scaling adds more servers rather than upgrading hardware (which is vertical scaling).",
+        "firstguess_analysis": "Key Matches:\n- Correctly identified that the architecture divides an app into layers (though named incorrectly).\n\nSuggested Improvements:\n- Clarify middleware's role specifically within Logic tier.\n- Correct definition of horizontal scaling (adding servers instead of upgrading hardware)."
+    },
+    {
+        "question_id": 2,
+        "question_text": "Can you explain the 3-tier architecture and horizontal scaling concepts in simpler terms?",
+        "response_type": "Irrelevant First Guess",
+        "student_guess": "The 3-tier architecture is about building skyscrapers with three floors.",
+        "chatbot_response": "Irrelevant guess. The 3-tier architecture refers to software organization into Presentation (user-facing), Logic (business rules), and Persistence (data storage), not physical buildings. Horizontal scaling means adding more servers to handle higher user loads.",
+        "firstguess_analysis": "Key Matches:\n- Mention of \"three floors\" indirectly relates to separation of concerns.\n\nSuggested Improvements:\n- Clearly define the role of each tier (Presentation, Logic, Persistence).\n- Use software-specific examples (like an online shop app: frontend displays, logic processes orders, backend stores data)."
+    },
+    {
+        "question_id": 3,
+        "question_text": "How do Active Record models implement persistence in Rails applications?",
+        "response_type": "Plain Question",
+        "student_guess": "N/A",
+        "chatbot_response": "Active Record models in Rails implement persistence by mapping Ruby objects to database tables, providing built-in CRUD (Create, Read, Update, Delete) operations. Models inherit from ActiveRecord::Base, leveraging Rails migrations for schema changes and conventions for naming tables and columns, thus abstracting database interactions.",
+        "firstguess_analysis": "N/A"
+    },
+    {
+        "question_id": 3,
+        "question_text": "How do Active Record models implement persistence in Rails applications?",
+        "response_type": "Correct First Guess",
+        "student_guess": "Active Record models map Ruby objects to database rows and use built-in methods such as save, update, and destroy to persist changes to the database.",
+        "chatbot_response": "Correct. Active Record models map Ruby objects to database tables, using methods like 'save', 'update', and 'destroy' to manage CRUD operations. Rails handles schema changes via migrations and enforces naming conventions to simplify database interactions.",
+        "firstguess_analysis": "Key Matches:\n- Correct mapping of Ruby objects to database rows.\n- Mention of built-in methods (save, update, destroy).\n\nSuggested Improvements:\n- Further detail CRUD operations with SQL counterparts (INSERT, SELECT, UPDATE, DELETE).\n- Mention Active Record features like validations and callbacks explicitly."
+    },
+    {
+        "question_id": 3,
+        "question_text": "How do Active Record models implement persistence in Rails applications?",
+        "response_type": "Wrong First Guess",
+        "student_guess": "Active Record models implement persistence by saving data to local files or in-memory storage without involving a database.",
+        "chatbot_response": "Incorrect. Active Record models persist data by interacting directly with relational databases, managing CRUD operations through Rails' migrations and built-in methods, rather than local files or memory storage.",
+        "firstguess_analysis": "Key Matches:\n- Mentioned saving data, conceptually aligning with persistence.\n\nSuggested Improvements:\n- Clarify persistence involves database interaction, not files or memory.\n- Mention Rails migrations for schema management."
+    },
+    {
+        "question_id": 3,
+        "question_text": "How do Active Record models implement persistence in Rails applications?",
+        "response_type": "Irrelevant First Guess",
+        "student_guess": "Active Record models implement persistence by sending data to external REST APIs to store and retrieve records.",
+        "chatbot_response": "Incorrect. Active Record models implement persistence by directly mapping objects to relational database tables, managing CRUD via built-in methods and Rails migrations, not via external REST APIs.",
+        "firstguess_analysis": "Key Matches:\n- Mentioned sending data, relating broadly to data persistence.\n\nSuggested Improvements:\n- Correct the focus from external REST APIs to internal database interaction.\n- Emphasize the role of Active Record in direct database management."
+    },
+    {
+        "question_id": 4,
+        "question_text": "Can you explain Ruby's block and closure concepts with practical examples?",
+        "response_type": "Plain Question",
+        "student_guess": "N/A",
+        "chatbot_response": "In Ruby, blocks are anonymous functions passed to methods, often used with iterators (like `each`). They can access variables from the surrounding context, thus acting as closures. For example, `[1,2,3].each {|num| puts num}` demonstrates a block, while a closure example could be a multiplier function retaining its multiplication factor in a returned block, accessible after the original scope ends.",
+        "firstguess_analysis": "N/A"
+    },
+    {
+        "question_id": 4,
+        "question_text": "Can you explain Ruby's block and closure concepts with practical examples?",
+        "response_type": "Correct First Guess",
+        "student_guess": "Ruby blocks are anonymous functions that not only execute code (e.g., with each) but also capture and remember variables from their surroundings, hence acting as closures.",
+        "chatbot_response": "Correct. Ruby blocks are anonymous functions passed to methods and executed in context. Blocks retain access to variables in their defining scope, functioning as closures. For instance, `[1,2,3].each {|n| puts n}` shows a simple block, while a method returning a multiplier block (`lambda {|x| x * factor}`) demonstrates closure properties clearly.",
+        "firstguess_analysis": "Key Matches:\n- Correct definition of blocks as anonymous functions.\n- Correct explanation of closures capturing variables from the surrounding environment.\n\nSuggested Improvements:\n- Explicitly mention the ability of closures to retain variable access even after the original scope has exited.\n- Include more explicit practical examples (like multiplier closures)."
+    },
+    {
+        "question_id": 4,
+        "question_text": "Can you explain Ruby's block and closure concepts with practical examples?",
+        "response_type": "Wrong First Guess",
+        "student_guess": "Ruby blocks and closures are the same as lambdas\u2014they both require explicit declaration of parameters and behave exactly like regular methods.",
+        "chatbot_response": "Incorrect. Blocks in Ruby are anonymous code snippets passed to methods, whereas lambdas are explicitly defined anonymous functions. Blocks automatically capture context without explicit declaration, while lambdas require explicit parameter definitions and have distinct behaviors compared to regular methods.",
+        "firstguess_analysis": "Key Matches:\n- Mention of anonymous functions and parameters aligns loosely.\n\nSuggested Improvements:\n- Clearly differentiate blocks and lambdas in Ruby: blocks do not require explicit parameter declarations like lambdas.\n- Clarify behavioral differences between blocks, lambdas, and regular methods."
+    },
+    {
+        "question_id": 4,
+        "question_text": "Can you explain Ruby's block and closure concepts with practical examples?",
+        "response_type": "Irrelevant First Guess",
+        "student_guess": "Ruby\u2019s block and closure concepts work exactly like JavaScript promises, where asynchronous tasks are handled, and errors are caught automatically.",
+        "chatbot_response": "Incorrect. Ruby blocks and closures are about encapsulating code execution within methods and capturing surrounding scope. They differ fundamentally from JavaScript promises, which handle asynchronous tasks and automatic error catching, a distinct concept unrelated to Ruby blocks.",
+        "firstguess_analysis": "Key Matches:\n- Mention of code execution indirectly relates to block functionality.\n\nSuggested Improvements:\n- Distinguish clearly between Ruby blocks (synchronous, encapsulate behavior) and JavaScript promises (asynchronous, error handling).\n- Provide Ruby-specific examples like iteration (`each`) and multiplier closures."
+    },
+    {
+        "question_id": 5,
+        "question_text": "What are the fundamental components of a Rails CRUD application?",
+        "response_type": "Plain Question",
+        "student_guess": "N/A",
+        "chatbot_response": "A Rails CRUD application fundamentally includes Models (data and business logic), Views (user interface), Controllers (interaction logic), Routes (URL mappings), and a Database for persistent storage. These components collectively handle Create, Read, Update, and Delete operations within Rails' MVC architecture.",
+        "firstguess_analysis": "N/A"
+    },
+    {
+        "question_id": 5,
+        "question_text": "What are the fundamental components of a Rails CRUD application?",
+        "response_type": "Correct First Guess",
+        "student_guess": "Rails CRUD applications use Models, Controllers, Views, routes, and migrations to handle create, read, update, and delete operations.",
+        "chatbot_response": "Correct. Rails CRUD apps include Models (database interaction), Controllers (request handling), Views (data presentation), Routes (map URLs to actions), and Migrations (manage database schema). These components facilitate CRUD functionalities within Rails\u2019 MVC framework.",
+        "firstguess_analysis": "Key Matches:\n- Correct identification of MVC components: Models, Controllers, Views, Routes, Migrations.\n\nSuggested Improvements:\n- Further clarify each component's role, especially Views (HTML/embedded Ruby) and Routes (RESTful architecture mapping).\n- Include specific examples of CRUD actions related to each component."
+    },
+    {
+        "question_id": 5,
+        "question_text": "What are the fundamental components of a Rails CRUD application?",
+        "response_type": "Wrong First Guess",
+        "student_guess": "Rails CRUD applications are made up solely of Models and Controllers because they handle data and logic.",
+        "chatbot_response": "Incorrect. Rails CRUD applications include Models (data logic), Controllers (interaction logic), and importantly, Views for user interface presentation. Routes for URL mapping and Migrations for database schema management are also essential.",
+        "firstguess_analysis": "Key Matches:\n- Correct identification of Models and Controllers as critical components.\n\nSuggested Improvements:\n- Include Views explicitly as an essential component of Rails CRUD.\n- Mention Routes and Migrations to provide a complete picture of Rails CRUD app architecture."
+    },
+    {
+        "question_id": 5,
+        "question_text": "What are the fundamental components of a Rails CRUD application?",
+        "response_type": "Irrelevant First Guess",
+        "student_guess": "Rails CRUD is basically about writing Ruby code that saves some data to a database.",
+        "chatbot_response": "Oversimplified. Rails CRUD applications involve more than just saving data: they include Models, Controllers, Views, Routes, and Migrations working collectively to perform Create, Read, Update, and Delete operations effectively within a structured MVC framework.",
+        "firstguess_analysis": "Key Matches:\n- Mention of saving data loosely aligns with CRUD (Create and Update).\n\nSuggested Improvements:\n- Clearly define all CRUD operations (Create, Read, Update, Delete).\n- Specify MVC components explicitly (Models, Views, Controllers, Routes, Migrations)."
+    }, 
+    {
+        "question_id": 6,
+        "question_text": "How does RESTful routing in Rails relate to HTTP verbs and CRUD actions?",
+        "response_type": "Plain Question",
+        "student_guess": "N/A",
+        "chatbot_response": "RESTful routing in Rails maps HTTP verbs (GET, POST, PUT/PATCH, DELETE) directly to CRUD operations. GET retrieves resources (Read), POST creates new resources (Create), PUT/PATCH updates resources (Update), and DELETE removes resources (Delete), providing a clear, structured approach aligned with REST principles.",
+        "firstguess_analysis": "N/A"
+    },
+    {
+        "question_id": 6,
+        "question_text": "How does RESTful routing in Rails relate to HTTP verbs and CRUD actions?",
+        "response_type": "Correct First Guess",
+        "student_guess": "Rails RESTful routing directly maps HTTP verbs (GET, POST, PUT/PATCH, DELETE) to specific CRUD actions.",
+        "chatbot_response": "Correct. RESTful routing in Rails explicitly connects HTTP verbs to CRUD actions: GET corresponds to Read, POST to Create, PUT/PATCH to Update, and DELETE to Delete. This clear mapping simplifies URL handling and resource management in Rails apps.",
+        "firstguess_analysis": "Correct mapping between HTTP verbs and CRUD actions. Suggested improvements: Explicitly describe each verb-action pair with practical examples."
+    },
+    {
+        "question_id": 6,
+        "question_text": "How does RESTful routing in Rails relate to HTTP verbs and CRUD actions?",
+        "response_type": "Wrong First Guess",
+        "student_guess": "Rails RESTful routing is about using URLs to directly call database actions without HTTP verbs.",
+        "chatbot_response": "Incorrect. Rails RESTful routing explicitly uses HTTP verbs (GET, POST, PUT/PATCH, DELETE) to correspond with CRUD actions, not just URLs calling database actions directly. This ensures clear, standardized interactions within web applications.",
+        "firstguess_analysis": "Mention of URLs aligns with routing concepts. Suggested improvements: Clarify the essential use of HTTP verbs for RESTful routing. Specify correct mappings explicitly."
+    },
+    {
+        "question_id": 6,
+        "question_text": "How does RESTful routing in Rails relate to HTTP verbs and CRUD actions?",
+        "response_type": "Irrelevant First Guess",
+        "student_guess": "RESTful routing is about routing internet traffic through REST servers in data centers.",
+        "chatbot_response": "Incorrect. RESTful routing in Rails refers specifically to mapping HTTP verbs (GET, POST, PUT/PATCH, DELETE) to CRUD actions (Create, Read, Update, Delete) within web applications, not routing internet traffic through data centers.",
+        "firstguess_analysis": "Mention of routing loosely aligns with the topic. Suggested improvements: Clearly define RESTful routing as mapping HTTP methods to CRUD actions and provide examples."
+    },
+    {
+        "question_id": 7,
+        "question_text": "What role do migrations play in managing databases within Rails applications?",
+        "response_type": "Plain Question",
+        "student_guess": "N/A",
+        "chatbot_response": "In Rails, migrations manage database schema changes systematically. They allow developers to incrementally apply changes (create, update, delete tables or columns) while maintaining schema consistency across development environments. Migrations are reversible and version-controlled, aiding smooth collaboration and deployment.",
+        "firstguess_analysis": "N/A"
+    },
+    {
+        "question_id": 7,
+        "question_text": "What role do migrations play in managing databases within Rails applications?",
+        "response_type": "Correct First Guess",
+        "student_guess": "Rails migrations systematically handle database schema changes (like adding tables or columns) in a reversible and version-controlled way.",
+        "chatbot_response": "Correct. Migrations in Rails systematically handle database schema changes, such as adding or modifying tables/columns. They provide reversibility, version control, and ensure schema consistency across different environments, facilitating easier teamwork and deployment.",
+        "firstguess_analysis": "Correct mention of systematic handling, reversibility, and version control. Suggested improvements: Provide specific examples of migration commands."
+    },
+    {
+        "question_id": 7,
+        "question_text": "What role do migrations play in managing databases within Rails applications?",
+        "response_type": "Wrong First Guess",
+        "student_guess": "Rails migrations are just backup scripts that copy database data to a secure location.",
+        "chatbot_response": "Incorrect. Rails migrations are not backup scripts. Instead, they systematically manage changes to database schema\u2014adding, modifying, or deleting tables and columns\u2014in a structured, reversible, and version-controlled manner.",
+        "firstguess_analysis": "Mentioned database indirectly relates to migrations. Suggested improvements: Clearly distinguish migrations (schema management) from backups (data preservation)."
+    },
+    {
+        "question_id": 7,
+        "question_text": "What role do migrations play in managing databases within Rails applications?",
+        "response_type": "Irrelevant First Guess",
+        "student_guess": "Migrations in Rails manage the movement of Rails applications from one hosting provider to another.",
+        "chatbot_response": "Incorrect. Rails migrations specifically manage changes to database schemas (such as creating or altering tables and columns) within applications, not migrations between hosting providers.",
+        "firstguess_analysis": "Mention of 'manage' indirectly aligns with database management. Suggested improvements: Clarify migrations as schema management and distinguish explicitly from hosting migrations."
+    },
+    {
+        "question_id": 8,
+        "question_text": "How do validations work in Active Record, and why are they important?",
+        "response_type": "Plain Question",
+        "student_guess": "N/A",
+        "chatbot_response": "Active Record validations ensure data integrity by checking object attributes before saving to the database. Examples include presence (ensuring attribute isn't blank), uniqueness (preventing duplicate values), and length constraints. Validations are essential for maintaining reliable, consistent, and secure data.",
+        "firstguess_analysis": "N/A"
+    },
+    {
+        "question_id": 8,
+        "question_text": "How do validations work in Active Record, and why are they important?",
+        "response_type": "Correct First Guess",
+        "student_guess": "Active Record validations ensure data correctness by checking attributes before database persistence, such as ensuring presence and uniqueness.",
+        "chatbot_response": "Correct. Active Record validations verify object attributes before saving data to the database, enforcing rules like presence, uniqueness, and format constraints. This maintains data integrity, consistency, and security across applications.",
+        "firstguess_analysis": "Correct definition and mention of attribute validations (presence, uniqueness). Suggested improvements: Include explicit examples of validation methods like 'validates :name, presence: true'. Highlight security implications of using validations."
+    },
+    {
+        "question_id": 8,
+        "question_text": "How do validations work in Active Record, and why are they important?",
+        "response_type": "Wrong First Guess",
+        "student_guess": "Active Record validations run only after data is saved, checking for issues post-storage.",
+        "chatbot_response": "Incorrect. Active Record validations occur before saving data to ensure attributes meet criteria (presence, uniqueness, etc.). They prevent invalid data from entering the database, not after the data is stored.",
+        "firstguess_analysis": "Mention of validations and checking aligns broadly. Suggested improvements: Clarify explicitly that validations occur before, not after saving data. Provide correct sequence of validation and save operations."
+    },
+    {
+        "question_id": 8,
+        "question_text": "How do validations work in Active Record, and why are they important?",
+        "response_type": "Irrelevant First Guess",
+        "student_guess": "Validations in Active Record relate to checking code syntax before the Rails server starts.",
+        "chatbot_response": "Incorrect. Validations in Active Record specifically check object attributes before saving data to databases, ensuring data integrity, not code syntax checking during server startup.",
+        "firstguess_analysis": "Mention of 'checking' loosely aligns with validation concept. Suggested improvements: Clearly define validations as data attribute checks. Clarify distinction from code syntax or compilation checks."
+    },
+    {
+        "question_id": 9,
+        "question_text": "Explain the difference between session and persistent storage in web applications.",
+        "response_type": "Plain Question",
+        "student_guess": "N/A",
+        "chatbot_response": "Session storage temporarily stores data during a user's visit, clearing after session ends, ideal for short-lived user states (like login). Persistent storage retains data permanently across sessions, suited for user profiles or transaction histories, typically stored in databases.",
+        "firstguess_analysis": "N/A"
+    },
+    {
+        "question_id": 9,
+        "question_text": "Explain the difference between session and persistent storage in web applications.",
+        "response_type": "Correct First Guess",
+        "student_guess": "Session storage holds temporary data for a single visit, while persistent storage retains data permanently across multiple sessions.",
+        "chatbot_response": "Correct. Session storage temporarily keeps data for the duration of a user's interaction with the application, expiring after the session ends. Persistent storage maintains data indefinitely across sessions, suitable for user profiles or important transaction records.",
+        "firstguess_analysis": "Correct differentiation between temporary (session) and permanent (persistent) storage. Suggested improvements: Clarify typical use cases (sessions for authentication, persistent for databases/user records)."
+    },
+    {
+        "question_id": 9,
+        "question_text": "Explain the difference between session and persistent storage in web applications.",
+        "response_type": "Wrong First Guess",
+        "student_guess": "Session storage permanently stores user data like passwords, whereas persistent storage temporarily caches data for performance.",
+        "chatbot_response": "Incorrect. Session storage temporarily holds user data for the current session and clears afterward, ideal for login states but not passwords. Persistent storage permanently stores data across sessions, like user information or transaction data, not temporary caches.",
+        "firstguess_analysis": "Mentioned storage concept (though inverted permanency). Suggested improvements: Correct the permanence of each storage type. Emphasize security issues like never storing passwords in session storage."
+    },
+    {
+        "question_id": 9,
+        "question_text": "Explain the difference between session and persistent storage in web applications.",
+        "response_type": "Irrelevant First Guess",
+        "student_guess": "Session storage and persistent storage are different types of RAM used by computers.",
+        "chatbot_response": "Incorrect. Session and persistent storage differ in web context: session storage temporarily stores data during user interactions, while persistent storage permanently maintains data across multiple visits, typically using databases\u2014not RAM.",
+        "firstguess_analysis": "Mention of 'storage' aligns broadly. Suggested improvements: Correct context explicitly (web vs. RAM/hardware storage). Provide examples specific to web apps (session cookies vs. database storage)."
+    },
+    {
+        "question_id": 10,
+        "question_text": "What are microservices, and how do they differ from traditional monolithic applications?",
+        "response_type": "Plain Question",
+        "student_guess": "N/A",
+        "chatbot_response": "Microservices are independently deployable, modular services that handle specific functions within an application. Unlike monolithic applications\u2014which combine all functionalities in a single codebase\u2014microservices break an application into smaller, interconnected components, each independently scalable and maintainable.",
+        "firstguess_analysis": "N/A"
+    },
+    {
+        "question_id": 10,
+        "question_text": "What are microservices, and how do they differ from traditional monolithic applications?",
+        "response_type": "Correct First Guess",
+        "student_guess": "Microservices break down an application into smaller independent services, whereas monolithic apps bundle all functionality into one large unit.",
+        "chatbot_response": "Correct. Microservices split an application into smaller, independently deployable services, each performing specific tasks. Monolithic applications, by contrast, consolidate all functions into one extensive, single codebase, limiting flexibility and scalability.",
+        "firstguess_analysis": "Correct identification of microservices and monolithic applications. Suggested improvements: Discuss clearly the scalability and maintenance benefits of microservices over monoliths."
+    },
+    {
+        "question_id": 10,
+        "question_text": "What are microservices, and how do they differ from traditional monolithic applications?",
+        "response_type": "Wrong First Guess",
+        "student_guess": "Microservices and monolithic applications are essentially the same, just different names for the same architectural approach.",
+        "chatbot_response": "Incorrect. Microservices consist of independently deployable, modular components, each managing specific functions, in contrast to monolithic applications, which bundle all functionalities into a single, unified codebase.",
+        "firstguess_analysis": "Mentioned the concepts (but misunderstood their equivalence). Suggested improvements: Clarify explicitly how microservices differ structurally and functionally from monolithic apps."
+    },
+    {
+        "question_id": 10,
+        "question_text": "What are microservices, and how do they differ from traditional monolithic applications?",
+        "response_type": "Irrelevant First Guess",
+        "student_guess": "Microservices refer to small-scale customer services offered by businesses.",
+        "chatbot_response": "Incorrect. Microservices in software architecture are modular, independently deployable services that constitute a single application, contrasting sharply with traditional monolithic structures where all functions reside within a single large application.",
+        "firstguess_analysis": "Mention of 'services' aligns loosely. Suggested improvements: Clearly define microservices in the software architecture context and provide a direct contrast with monolithic applications."
+    },
+    {
+        "question_id": 11,
+        "question_text": "Why are Continuous Integration (CI) and Continuous Deployment (CD) critical in agile SaaS development?",
+        "response_type": "Plain Question",
+        "student_guess": "N/A",
+        "chatbot_response": "CI/CD automates integration, testing, and deployment of code, enabling agile SaaS development to deliver rapid updates, quickly detect bugs, and enhance product quality consistently. It reduces manual intervention, accelerates development cycles, and supports continuous improvement.",
+        "firstguess_analysis": "N/A"
+    },
+    {
+        "question_id": 11,
+        "question_text": "Why are Continuous Integration (CI) and Continuous Deployment (CD) critical in agile SaaS development?",
+        "response_type": "Correct First Guess",
+        "student_guess": "CI/CD ensures fast, automated testing and deployment, helping agile teams deliver reliable software updates frequently.",
+        "chatbot_response": "Correct. CI/CD supports agile SaaS by automating testing, integration, and deployment, allowing teams to frequently release reliable software, swiftly respond to user feedback, and maintain high-quality standards continuously.",
+        "firstguess_analysis": "Correct identification of automation and frequent reliable releases. Suggested improvements: Elaborate further on the reduced risk of bugs and enhanced user satisfaction through rapid feedback loops."
+    },
+    {
+        "question_id": 11,
+        "question_text": "Why are Continuous Integration (CI) and Continuous Deployment (CD) critical in agile SaaS development?",
+        "response_type": "Wrong First Guess",
+        "student_guess": "CI/CD is unnecessary for agile SaaS development, as manual testing and deployment are sufficient and preferable.",
+        "chatbot_response": "Incorrect. CI/CD is vital in agile SaaS, automating critical stages like integration, testing, and deployment, significantly improving efficiency, reducing errors, and enabling faster software releases compared to manual processes.",
+        "firstguess_analysis": "Mentioned manual deployment incorrectly as preferable. Suggested improvements: Clarify explicitly the limitations and inefficiencies of manual processes and highlight specific benefits of CI/CD."
+    },
+    {
+        "question_id": 11,
+        "question_text": "Why are Continuous Integration (CI) and Continuous Deployment (CD) critical in agile SaaS development?",
+        "response_type": "Irrelevant First Guess",
+        "student_guess": "CI/CD refers to customer interaction and customer development processes in agile methodologies.",
+        "chatbot_response": "Incorrect. CI/CD stands for Continuous Integration and Continuous Deployment, involving automation of code integration, testing, and release processes in agile SaaS development, not customer interaction processes.",
+        "firstguess_analysis": "Mention of 'agile' loosely aligns. Suggested improvements: Clearly distinguish CI/CD (technical software development practices) from customer interaction and development processes."
+    }
+]

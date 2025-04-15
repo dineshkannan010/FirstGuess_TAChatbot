@@ -161,14 +161,15 @@ def enhanced_retriever(question: str, first_guess: str, k: int = 10, score_thres
     
     # Combine embeddings with weighted contributions
     combined_embedding = [
-        q * 0.8 + g * 0.2 for q, g in zip(question_embedding, guess_embedding)
+        q * 0.9 + g * 0.1 for q, g in zip(question_embedding, guess_embedding)
     ]
     
     # Use the combined embedding to perform a similarity search.
     # Note: _similarity_search_with_score is an internal method—ensure it's supported in your version!
     results = vector_search._similarity_search_with_score(
         query_vector=combined_embedding,
-        k=k
+        k=k,
+        embedding=combined_embedding
     )
     
     # Filter out documents with a similarity score below the threshold.
