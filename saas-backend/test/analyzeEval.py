@@ -33,11 +33,25 @@ print(avg_scores)
 # Save average scores to CSV
 avg_scores.to_csv('aggregated_chatbot_scores.csv')
 
+# Remove 'question_id' from avg_scores before melting
+cols_to_plot = [col for col in avg_scores.columns if col != 'question_id']
+avg_scores_no_id = avg_scores[cols_to_plot].copy()
+avg_scores_no_id['response_type'] = avg_scores.index
+
+# Melt for seaborn
+avg_scores_melt = avg_scores_no_id.melt(id_vars='response_type', 
+                                        var_name='Criteria', 
+                                        value_name='Average Score')
+
 # Visualization
 plt.figure(figsize=(10, 6))
-sns.barplot(data=avg_scores.reset_index().melt(id_vars='response_type'),
-            x='response_type', y='value', hue='variable')
-
+sns.barplot(
+    data=avg_scores_melt,
+    x='response_type',
+    y='Average Score',
+    hue='Criteria',
+    palette='bright'
+)
 plt.title('Average Evaluation Scores by Response Type')
 plt.xlabel('Response Type')
 plt.ylabel('Average Score')
