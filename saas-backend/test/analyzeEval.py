@@ -44,7 +44,7 @@ avg_scores_melt = avg_scores_no_id.melt(id_vars='response_type',
                                         value_name='Average Score')
 
 # Visualization
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(12, 6))
 sns.barplot(
     data=avg_scores_melt,
     x='response_type',
@@ -56,7 +56,14 @@ plt.title('Average Evaluation Scores by Response Type')
 plt.xlabel('Response Type')
 plt.ylabel('Average Score')
 plt.ylim(0, 5)
-plt.legend(title='Criteria', bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.legend(
+    title='Criteria',
+    fontsize=14,         # Legend label font size
+    title_fontsize=18,   # Legend title font size
+    bbox_to_anchor=(1.05, 1),
+    loc='upper left'
+)
+
 plt.tight_layout()
 plt.savefig('evaluation_scores.png')
 plt.show()

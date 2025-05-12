@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  frontend:
+    build: ./saas-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+  backend:
+    build: ./saas-backend
+    ports:
+      - "5000:5000"
+    environment:
+      MONGO_URI: mongodb+srv://dkannan:dkannan@cluster0.hmoizfl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:7.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:

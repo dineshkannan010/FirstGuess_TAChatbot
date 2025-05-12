@@ -72,4 +72,4 @@ app.register_blueprint(swagger_ui_blueprint, url_prefix=SWAGGER_URL)
 # Specify the entry point of the Flask application, which is only executed when the script is run directly.
 if __name__ == '__main__':
     # Run the Flask application on port 8000, accessible from any network interface.
-    app.run(debug=True, port=8000, host="0.0.0.0")
+    app.run(debug=True, port=5000, host="0.0.0.0")
